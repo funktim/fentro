@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" />
+		<title>Fentro</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style type="text/css">
+
+/*--------------------*/
+body{
+	margin:0px;
+	font-family:sans-serif;
+	color:#333;
+	font-size:16px;
+	background:#fff;
+	background:linear-gradient(#efe,#fff);
+}
+body *{
+	transition-duration:0.5s;
+}
+input, button{
+	border:none;
+}
+a{
+	text-decoration:none;
+	color:#666;
+}
+a:hover, a:focus{
+	color:#6b3;
+}
+h1{
+	font-size:24px;
+	border-bottom:solid 2px #999;
+	margin:32px 0px;
+	font-family:serif;
+	line-height:20px;
+	width:90%;
+	text-indent:16px;
+	transform:scaleX(1.1);
+	transform-origin:left;
+}
+h3{
+	font-size:20px;
+	margin:16px 0px;
+	font-family:serif;
+}
+h5{
+	font-size:16px;
+	margin:0px;
+	text-transform:uppercase;
+}
+p{
+	text-align:justify;
+	margin:32px 0px;
+	letter-spacing:-0.5px;
+	line-height:24px;
+	width:90%;
+	transform:scaleX(1.1);
+	transform-origin:left;
+}
+
+.hdr{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:128px;
+	background:#fff;
+	background:linear-gradient(#fff,#fff,#fff,rgba(255,255,255,0));
+}
+.bar{
+	background:#999;
+	background:linear-gradient(#999,#aaa,#999);
+	height:32px;
+	padding:0px 32px;
+	font-family:sans-serif;
+}
+.bar form{
+	margin:4px 0px;
+	height:24px;
+	float:right;
+	display:flex;
+}
+.bar form:focus-within, .bar form:hover{
+	box-shadow:0px 0px 32px;
+	transform:scale(1.05);
+}
+.bar button{
+	height:24px;
+	width:24px;
+	background:#6b3;
+	outline:none;
+	padding:0px;
+	cursor:pointer;
+}
+.bar input{
+	height:24px;
+	padding:0px;
+	outline:none;
+	font-size:16px;
+	font-family:sans-serif;
+	color:#666;
+}
+.bar a{
+	color:#fff;
+	font-weight:bold;
+	padding:8px;
+	height:16px;
+	float:right;
+}
+.mnu{
+	padding:24px 32px 0px;
+	display:flex;
+	float:right;
+}
+.mnu a{
+	font-size:16px;
+	font-family:sans-serif;
+	font-variant:small-caps;
+	text-align:center;
+}
+
+.pag{
+	max-width:1024px;
+	width:95%;
+	margin:0px auto;
+	padding:288px 0px 32px;
+	display:none;
+}
+#home{
+	padding-top:160px;
+}
+
+.hid{
+	display:none;
+}
+.shw{
+	overflow:auto;
+	width:100%;
+	background:#6b3;
+	display:flex;
+}
+.shw img{
+	width:100%;
+	background:#ccc;
+}	
+.cpt{
+	position:absolute;
+	font-size:32px;
+	font-family:serif;
+	text-align:center;
+	line-height:128px;
+	top:128px;
+	height:128px;
+	left:0px;
+	width:100%;
+	background:#333;
+	background:radial-gradient(#555,#333);
+	color:white;
+	border-bottom:solid #6b3 8px;
+}
+.mor{
+	border-top:solid 1px #666;
+	text-align:center;
+	width:100%;
+	padding:32px 0px;
+	filter:drop-shadow(0 0 32px #000);
+}
+.mor *{
+	font-size:24px;
+	margin:16px;
+	padding:8px;
+	color:#333;
+	text-transform:uppercase;
+}
+.mor a{
+	border:solid 2px #6b3;
+	background:rgba(0,0,0,0.5);
+	color:white;
+}
+.mor a:hover, .mor a:focus{
+	background:rgba(0,0,0,0.8);
+}
+#home{
+	display:inherit;
+	padding-bottom:32px;
+}
+.pag:target{
+	display:inherit;
+}
+.pag:target ~#home{
+	display:none;
+}
+.flx{
+	display:flex;
+	margin:16px auto;
+	padding:0px 10%;
+	justify-content:center;
+}
+#home .flx{
+	text-align:right;
+}
+#solutions .flx, #solutions .flx p{
+	text-align:center;
+}
+.flx a{
+	width:50%;
+	margin:0px 16px;
+}
+#about-us .flx a{
+	margin:auto 32px;
+}
+.flx img{
+	width:100%;
+}
+#home .flx img, #solutions .flx img{
+	border-bottom:solid 8px #6b3;
+}
+.flx p{
+	margin-top:0px;
+}
+.flx a:hover, .flx a:focus{
+	filter:drop-shadow(0px 0px 32px);
+	color:#666;
+}
+
+
+
+.ind{
+	position:fixed;
+	top:80px;
+	right:627px;
+	width:0px;
+	height:4px;
+	background:#6b3;
+	opacity:0;
+}
+.mnu a[href="#contact"]{
+	width:77px;
+}
+.mnu a[href="#whats-new"]{
+	width:103px;
+}
+.mnu a[href="#siegenia-group"]{
+	width:133px;
+}
+.mnu a[href="#kommerling"]{
+	width:106px;
+}
+.mnu a[href="#solutions"]{
+	width:91px;
+}
+.mnu a[href="#about-us"]{
+	width:85px;
+}
+#about-us:target ~ .ind{
+	right:542px;
+	width:85px;
+	opacity:1;
+}
+#solutions:target ~ .ind{
+	right:451px;
+	width:91px;
+	opacity:1;
+}
+#kommerling:target ~ .ind{
+	right:345px;
+	width:106px;
+	opacity:1;
+}
+#siegenia-group:target ~ .ind{
+	right:212px;
+	width:133px;
+	opacity:1;
+}
+#whats-new:target ~ .ind{
+	right:109px;
+	width:103px;
+	opacity:1;
+}
+#contact:target ~ .ind{
+	right:32px;
+	width:77px;
+	opacity:1;
+}
+
+.lgo{
+	z-index:3;
+	position:fixed;
+	top:16px;
+	left:32px;
+	width:270px;
+	height:96px;
+}
+
+.tgl{
+	display:none;
+}
+#menu{
+	display:none;
+}
+
+.ftr .nav a{
+	display:block;
+	color:#fff;
+	padding:4px;
+}
+.ftr .nav a:hover, .ftr .nav a:focus, .ibr a:hover{
+	color:#6b3;
+}
+
+@media only screen and (min-width:778px){
+	.ftr{
+		width:100%;
+		background:#333;
+		display:flex;
+	}
+	.ftr div{
+		margin:32px;
+		width:33%;
+		text-align:center;
+		color:#fff;
+		line-height:24px;
+	}
+	.ibr{
+		width:100%;
+		height:64px;
+		background:#222;
+	}
+	.ibr a{
+		padding:24px;
+		color:#fff;
+		float:right;
+	}
+	.ibr a:hover{
+		color:#6b3;
+	}
+	.ibr span{
+		float:left;
+		padding:24px;
+	}
+}
+
+
+@media only screen and (max-width:778px){
+
+	.ftr{
+		background:#333;
+	}
+	.ftr div{
+		text-align:center;
+		color:white;
+		padding:16px;
+		line-height:24px;
+	}
+	.ibr{
+		padding:16px;
+		background:#222;
+	}
+	.ibr a{
+		text-align:center;
+		display:block;
+		color:#fff;
+		padding:8px;
+	}
+	.ibr span{
+		text-align:center;
+		display:block;
+		padding:4px;
+	}
+
+	.lgo{
+		top:32px;
+		left:32px;
+		width:180px;
+		height:64px;
+	}
+	.flx h3{
+		font-size:16px;
+	}
+	.flx p{
+		font-size:12px;
+		line-height:16px;
+	}
+}
+
+
+@media only screen and (max-width:1024px){
+
+	.mnu{
+		display:none;
+	}
+	.ind{
+		display:none;
+	}
+	.tgl{
+		display:block;
+		position:fixed;
+		top:48px;
+		right:32px;
+		width:32px;
+		height:32px;
+	}
+	.tgl:hover, .tgl:focus{
+		filter:drop-shadow(0 0 32px #000);
+	}
+	.tgl div{
+		margin:6px 0px;
+		height:6px;
+		background:#6b3;
+	}
+	#menu{
+		z-index:2;
+		display:inherit;
+		transform:scaleY(0);
+		transform-origin:top;
+		position:fixed;
+		left:0px;
+		top:32px;
+		width:100%;
+		bottom:0px;
+		background:#fff;
+		background:linear-gradient(#efe,#fff);
+		padding:64px 0px;
+		overflow:auto;
+		opacity:0;
+	}
+	#menu a{
+		display:block;
+		margin:0px 10%;
+		padding:16px 5%;
+		font-size:24px;
+		border-bottom:solid 1px #666;
+	}
+	#menu .o2{
+		padding-left:10%;
+	}
+	#menu:target{
+		transform:scaleY(1);
+		opacity:1;
+	}
+	#menu:target~.pag, #menu:target~.ftr, #menu:target~.ibr{
+		display:none;
+	}
+	#menu:target~.lgo{
+		transform:scale(0.5);
+		transform-origin:top left;
+	}
+}
+
+.err{
+	position:absolute;
+	top:160px;
+	color:red;
+	padding:4px;
+	opacity:0;
+}
+.shw:hover~.err{
+	opacity:1;
+}
+/*--------------------*/
+
+		</style>
+	</head>
+	<body>
+		<div id="menu">
+			<a href="#about-us">About Us</a>
+			<a href="#solutions">Solutions</a>
+			<a class="o2" href="#demo">European PVC Profiles</a>
+			<a class="o2" href="#demo">Window & Door Hardware</a>
+			<a class="o2" href="#demo">Preassembled Lift and Slide Doors</a>
+			<a class="o2" href="#demo">Ancillary Products</a>
+			<a href="#kommerling">Kömmerling</a>
+			<a href="#siegenia-group">Siegenia Group</a>
+			<a href="#whats-new">What's New</a>
+			<a href="#contact">Contact</a>
+		</div>
+		<div class="pag" id="demo" id="whats-new" id="contact">
+			<div class="cpt">Demo Version</div>
+			<h1>This is only a Demo Version</h1>
+			<p>Sorry! The page you are trying to access is not available since this is website is for demonstration purposes only.</p>
+			<p>Are you interested in window and door Systems? Visit the official website at <a href="http://www.fentro.com">fentro.com</a>!</p>
+			<p>Do you like this website's layout and design? Contact the designer at <a href="mailto:funktim20@gmail.com">funktim20@gmail.com</a>!</p>
+			<div class="mor">
+				<h5>Learn more about Fentro</h5>
+				<a href="http://fentro.com">Visit Fentro</a>
+			</div>
+		</div>
+		<div class="pag" id="about-us">
+			<div class="cpt">About Us</div>
+			<h1>About Us</h1>
+			<p>Founded in 2001, Fentro Technologies is a leading distributor of European window and door systems and accessories. Our extensive knowledge of tilt and turn window systems and European door systems, from engineering and development to warehousing and logistics, allows Fentro to provide North American window and door manufacturers with cutting-edge European fenestration products and solutions.</p>
+			<h1>Our Team</h1>
+			<p>Fentro was founded by three entrepreneurs who recognized the need to provide North American window and door fabricators with tilt and turn expertise and products. With more than 60-years of combined experienced in the fenestration industry, we are dedicated to sharing our knowledge of the tilt and turn system to help you offer your customers a high-quality window product that meets North American building codes and requirements.</p>
+			<h1>Our Partners</h1>
+			<p>We have built relationships with some of the world’s most reputable manufacturers, including:</p>
+			<div class="flx">
+				<a href="www.koemmerling.com">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/koemmerling-logo.png" />
+				</a>
+				<a href="https://www.siegenia.com/en/">
+					<img src="http://fentro.com/wp-content/uploads/2018/04/SIEGENIA.png" />
+				</a>
+			</div>
+			<div class="flx">
+				<a href="phi-info.de">
+					<img src="https://fentro.com/wp-content/uploads/2015/05/phi-logo1.png" />
+				</a>
+				<a href="www.spax.com/en/">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/logo-spax.jpg" />
+				</a>
+				<a href="www.ces.eu/english/ces-gruppe">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/logo-ces.png" />
+				</a>
+			</div>
+			<div class="flx">
+				<a href="https://www.siegenia.com/en/products/door-hardware.html">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/logo-kfv-e1432940555562.png" />
+				</a>
+				<a href="www.wemaro.de">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/logo-wemaro.png" />
+				</a>
+				<a href="www.mhz.de/en/">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/logo-mhz.png" />
+				</a>
+			</div>
+			<div class="mor">
+				<h5>Learn more about Fentro</h5>
+				<a href="#demo">Contact us</a>
+			</div>
+		</div>
+		<div class="pag" id="solutions">
+			<div class="cpt">Solutions</div>
+			<h1>Solutions</h1>
+			<p>Our extensive network of relationships with fenestration manufacturers, suppliers and distributors in Europe allows us to supply a wide range of products and services for North American window and door manufacturers.</p>
+			<div class="flx">
+				<a href="#demo">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/window-door-profiles_large.jpg" />
+					<h3>European PVC Profiles</h3>
+					<p>Discover our selection of high-performance European PVC Profiles.</p>
+				</a>
+				<a href="#demo">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/window-door-hardware_large.jpg" />
+					<h3>Window & Door Hardware</h3>
+					<p>We offer manufacturers durable hardware for European windows and doors.</p>
+				</a>
+			</div>
+			<div class="flx">
+				<a href="#demo">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/Screen-Shot-2017-02-23-at-8.59.59-AM.jpg" />
+					<h3>Preassembled Lift and Slide Doors</h3>
+					<p>Our state-of-the-art manufacturing facilities deliver high-quality products and services.</p>
+				</a>
+				<a href="#demo">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/ZU_Gruppe1.jpg" />
+					<h3>Ancillary Products</h3>
+					<p>We have the window and door tools and equipment you need to improve your manufacturing services.</p>
+				</a>
+			</div>
+			<div class="mor">
+				<h5>Learn more about our Solutions & Products</h5>
+				<a href="#demo">Contact us</a>
+			</div>
+		</div>
+		<div class="pag" id="kommerling">
+			<div class="cpt">Kömmerling</div>
+			<h1>Kömmerling</h1>
+			<p>Today, plastic is the most successful window material and its market share is constantly growing. In residential construction, its share is of 60% whereas even seven out of ten windows used in renovation of old buildings are made of plastic materials. KÖMMERLING offers a large number of window systems so that every design wish can be easily and beautifully be fulfilled.</p>
+			<p>The product range is rounded out with window sills, safe roller and French shutters, PVC-U sheets for the building industry (used for example as residential door panels), cladding and balcony systems.</p>
+			<p>Efficiency, design, function, physical properties, the environmental protection and responsible handling of raw material resources meet the highest requirements and combine perfectly with the know-how of the window manufacturers to everyone’s benefits.</p>
+			<p>With the KÖMMERLING brand, we face the challenges of the future with confidence, honesty and transparency. So, we can prove our leadership position in the window profile sector every day.</p>
+			<div class="flx">
+				<a href="www.koemmerling.com">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/koemmerling-logo.png" />
+				</a>
+			</div>
+			<div class="mor">
+				<h5>Get started with Kömmerling and Fentro</h5>
+				<a href="#demo">Contact us</a>
+			</div>
+		</div>
+		<div class="pag" id="siegenia-group">
+			<div class="cpt">Siegenia Group</div>
+			<h1>System solutions for more room comfort</h1>
+			<p>The SIEGENIA GROUP offers its customers a comprehensive range of products and systems that make rooms come alive so that people feel comfortable in them. Designed for modern living and tomorrow’s lifestyles, our corporate group’s high-quality solutions rely on an optimum level of room comfort.</p>
+			<h1>Holistic interplay</h1>
+			<p>From aesthetics and design, to safety and protection, up to indoor air quality, spaciousness and ease of use – the consistent implementation of different aspects of room comfort is always the focus of any development of new window, door and comfort systems at SIEGENIA. To do this, this owner-operated company, now managed by the fourth generation, not only relies on close cooperation with its customers, but also on a distinct system concept and a holistically conceived interplay of solutions which reconciles innovative technology and economical fabrication with high end user benefit.</p>
+			<h1>Extensive system portfolio</h1>
+			<p>With its product groups TITAN, ALU and PORTAL as well as AERO and DRIVE, SIEGENIA is one of the world’s leading providers of room comfort solutions in the field of fitting and ventilation technology and domotics. Moreover, our subsidiary KFV covers all aspects of advanced locking systems for doors. Our range of systems for windows and doors is rounded off by SIEGENIA-AUBI Sicherheits-Service GmbH, which has positioned itself on the market with break-in protection and window repair products and services.</p>
+			<p>SIEGENIA GROUP’S product line includes:
+				<ul>
+					<li>Fittings for windows and patio doors (standard and special styles)</li>
+					<li>Wall and window ventilators for on-demand aeration and ventilation</li>
+					<li>Key-operated, handle operated and electronic multi-point locks for external doors</li>
+					<li>Special hardware for emergency exits and panic doors</li>
+					<li>Automatic closers and locks</li>
+					<li>Motor drives and locking parts</li>
+					<li>Mobile system solutions for home automation and intruder protection</li>
+				</ul>
+			</p>
+			<div class="flx">
+				<a href="https://www.siegenia.com/en/">
+					<img src="http://fentro.com/wp-content/uploads/2018/04/SIEGENIA.png" />
+				</a>
+			</div>
+			<div class="mor">
+				<h5>Get started with Siegenia and Fentro</h5>
+				<a href="#demo">Contact us</a>
+			</div>
+		</div>
+		<div class="pag" id="whats-new">
+			<div class="cpt">What's New</div>
+			<h1>This is only a Demo Version</h1>
+			<p>Sorry! The page you are trying to access is not available since this is website is for demonstration purposes only.</p>
+			<p>Are you interested in window and door Systems? Visit the official website at <a href="http://www.fentro.com">fentro.com</a>!</p>
+			<p>Do you like this website's layout and design? Contact the designer at <a href="mailto:funktim20@gmail.com">funktim20@gmail.com</a>!</p>
+			<div class="mor">
+				<h5>Learn more about Fentro</h5>
+				<a href="http://fentro.com">Visit Fentro</a>
+			</div>
+		</div>
+		<div class="pag" id="contact">
+			<div class="cpt">Contact</div>
+			<h1>This is only a Demo Version</h1>
+			<p>Sorry! The page you are trying to access is not available since this is website is for demonstration purposes only.</p>
+			<p>Are you interested in window and door Systems? Visit the official website at <a href="http://www.fentro.com">fentro.com</a>!</p>
+			<p>Do you like this website's layout and design? Contact the designer at <a href="mailto:funktim20@gmail.com">funktim20@gmail.com</a>!</p>
+			<div class="mor">
+				<h5>Learn more about Fentro</h5>
+				<a href="http://fentro.com">Visit Fentro</a>
+			</div>
+		</div>
+		<div class="pag" id="home">
+			<div class="shw">
+				<a id="sl1" href="#demo">
+					<img src="http://fentro.com/wp-content/uploads/2017/04/Fentro-Site-Carousel-DesignLift-Slide-Carousel-1.jpg" />
+				</a>
+			</div>
+			<div class="err">Slideshow not working in demo version</div>
+			<h1>Fentro Technologies</h1>
+			<p>Fentro Technologies is a leading distributor of European window and door systems, hardware and accessories. We provide North American window and door fabricators with the required components and solutions to manufacture high-quality uPVC windows and doors. Our experienced team is dedicated to helping you source, build and test fenestration solutions that will add value to your product line and drive sales for your organization.</p>
+			<div class="flx">
+				<a href="#demo">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/window-door-profiles_large.jpg" />
+					<h3>European PVC Profiles</h3>
+				</a>
+				<a href="#demo">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/window-door-hardware_large.jpg" />
+					<h3>Window & Door Hardware</h3>
+				</a>
+			</div>
+			<div class="flx">
+				<a href="#demo">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/Screen-Shot-2017-02-23-at-8.59.59-AM.jpg" />
+					<h3>Preassembled Lift and Slide Doors</h3>
+				</a>
+				<a href="#demo">
+					<img src="http://fentro.com/wp-content/uploads/2015/05/ZU_Gruppe1.jpg" />
+					<h3>Ancillary Products</h3>
+				</a>
+			</div>
+		</div>
+		<div class="ftr">
+			<div class="nav">
+				<a href="#kommerling">Kömmerling</a>
+				<a href="#siegenia-group">Siegenia Group</a>
+				<a href="#demo">Specialty Products & Services</a>
+				<a href="#demo">Window & Door Components</a>
+				<a href="#demo">Tools & Equipment</a>
+			</div>
+			<div>
+				<h5>Head Office</h5>
+				150 Grant Street <br />
+				Morden, MB R6M 1Y4 <br />
+				Canada <br/>
+				+1 (204) 822-1405
+			</div>
+			<div>
+				<h5>Office West</h5>
+				4460 50A Street <br />
+				Delta, BC V4K 4M1 <br />
+				Canada <br/>
+				+1 (604) 835-5001
+			</div>
+		</div>
+		<div class="ibr">
+			<a href="#demo">Site Map</a>
+			<a href="#demo">Privacy Policy</a>
+			<a href="#demo">Terms of Use</a>
+			<span>Designed by Tim Funk</span>
+		</div>
+		<div class="hdr">
+			<div class="bar">
+				<form>
+					<input type="search" />
+					<button>
+						<svg class="sch" viewbox="0 0 24 24">
+							<style>
+								.sch *{
+									stroke-width:3px;
+									stroke:white;
+									stroke-linecap:round;	
+									fill:none;
+								}
+							</style>
+							<circle cx="11" cy="11" r="7" />
+							<line x1="16" y1="16" x2="20" y2="20" />
+						</svg>
+					</button>
+				</form>
+				<a href="tel:+12048221405">+1 (204) 822-1405</a>
+			</div>
+			<a class="tgl" href="#menu">
+				<div></div>
+				<div></div>
+				<div></div>
+			</a>
+			<div class="mnu">
+				<a href="#about-us">About Us</a>
+				<a href="#solutions">Solutions</a>
+				<a href="#kommerling">Kömmerling</a>
+				<a href="#siegenia-group">Siegenia Group</a>
+				<a href="#whats-new">What's New</a>
+				<a href="#contact">Contact</a>
+			</div>
+		</div>
+		<div class="ind"></div>
+		<svg viewbox="0 0 179 64" class="lgo">
+			<style type="text/css">
+/*----------*/
+svg{
+	font-family:sans-serif;
+	filter:drop-shadow(0px 0px 16px #333);
+}
+#fentro{
+	font-size:24px;
+	font-weight:900;
+	letter-spacing:5px;
+	fill:#000;
+}
+#technologies{
+	font-size:11px;
+	font-weight:900;
+	letter-spacing:3px;
+	fill:#999;
+}
+#icon{
+	fill:#6b3;
+}
+/*----------*/
+			</style>
+			<a href="#">
+			<text id="fentro" x="1" y="41">FENTRO</text>
+			<text id="technologies" x="1" y="56">TECHNOLOGIES</text>
+			<path id="icon" d="M141,1 L179,39 L155,63 L155,48 L164,39 L141,16 Z" />
+			</a>
+		</svg>
+	</body>
+</html>
